@@ -36,21 +36,24 @@ public class ExcelServiceImp implements ExcelService {
 
                 Question question = new Question();
 
+                question.setPyq(getCellValueAsString(row.getCell(1)));
                 // Read Question Text
-                Cell questionCell = row.getCell(1); // Column B
+                Cell questionCell = row.getCell(2); // Column B
                 question.setQuestion(getCellValueAsString(questionCell));
 
                 // Read Options
-                question.setOptionA(getCellValueAsString(row.getCell(2))); // C
-                question.setOptionB(getCellValueAsString(row.getCell(3))); // D
-                question.setOptionC(getCellValueAsString(row.getCell(4))); // E
-                question.setOptionD(getCellValueAsString(row.getCell(5))); // F
+                question.setOptionA(getCellValueAsString(row.getCell(3))); // C
+                question.setOptionB(getCellValueAsString(row.getCell(4))); // D
+                question.setOptionC(getCellValueAsString(row.getCell(5))); // E
+                question.setOptionD(getCellValueAsString(row.getCell(6))); // F
 
                 // Read Answer
 //                question.setAnswer(getCellValueAsString(row.getCell(6))); // G
 
                 // Read Correct Answer
-                question.setCorrectAnswer(getCellValueAsString(row.getCell(6))); // H
+                question.setCorrectAnswer(getCellValueAsString(row.getCell(7))); // H
+
+                question.setExplanation(getCellValueAsString(row.getCell(8)));
 
                 questionList.add(question);
             }
